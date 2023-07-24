@@ -1,0 +1,48 @@
+Study
+
+kotlin -> 기본적으로 
+
+  fun main(args: Array<String>) {
+} 이런식임
+  파라미터 이름을 앞에 쓰고 뒤에 종류를 쓰기
+  fun이 기본임. function!
+  리턴값은 : 로 쓴다
+    함수의 사용새 - > val result = double(2) 이런식
+    Stream().read() -> member 함수.. 
+
+    파라미터는 Pascal notation - name: type 을 쓴다. 콤마로 나눠짐
+      기본값도 가질 수 있음.(뒤에 = 를 씀으로써)
+      
+fun read(
+    b: ByteArray,
+    off: Int = 0,
+    len: Int = b.size,
+) { /*...*/ }
+
+기본값을 가지고 있는 함수를 상속하는 경우에는 기본값을 수정할 수 없음
+
+fun foo(
+    bar: Int = 0,
+    baz: Int = 1,
+    qux: () -> Unit,
+) { /*...*/ }
+
+foo(1) { println("hello") }     // Uses the default value baz = 1
+foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1
+foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
+
+qux 라는 람다를 정의해줬기에 그냥 qux() 쓸 수 있음
+  근데 만약에
+  
+fun foo(
+    bar: Int = 0,
+    baz: Int = 1,
+    qux: (Int) -> Unit,
+) { /*...*/ } -> 이렇게 정의해주면 qux() 가 안됨. qux 가 int를 받아서 쓰는 함수이기 때문
+
+ https://kotlinlang.org/docs/functions.html#named-arguments 부터 하기 내일 
+
+  void 는 Unit으로 씀(생략가능)
+  read-only 는 val로 쓰고, 한번 밖에 할당안돼(final)
+  var 는 계속 reassing 돼
+    
